@@ -1,9 +1,9 @@
 # QuevedoFest
 
-- [x] 1. [Introducción]()
+- [x] 1. [Introducción](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/1-Introduccion/Introduccion.md)
 - [x] 2. Modelo Conceptual
-   - [ ] 2.1. [Especificaciones]()
-   - [ ] 2.2. [Diagrama Entidad-Relación]()
+   - [ ] 2.1. [Especificaciones](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/2-ModeloConceptual/2.1-Especificaciones.md)
+   - [ ] 2.2. [Diagrama Entidad-Relación](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/2-ModeloConceptual/2.2-DiagramaEntidadRelacion.md)
 - [ ] 3. Modelo Lógico 
    - [ ] 3.1. Modelo Relacional
    - [ ] 3.2. Normalización/Desnormalización
