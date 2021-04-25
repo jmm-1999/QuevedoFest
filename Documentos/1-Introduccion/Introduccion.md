@@ -1,9 +1,9 @@
 ## INTRODUCCIÓN
 
-![ImagenBBDD](Images/Captura.PNG)
+![ImagenBBDD](../../Images/Captura.PNG)
 
-El proyecto a realizar se basa en la creación de una base de datos que aborde el Área de Comunicaciones del gran QuevedoFest.
-Dicha base de datos gestionará diversos aspectos del festival mediante numerosas tablas de datos, así como la parte de Marketing (publicidad y relaciones públicas), documentación (escrita, gráfica, video)...
+El proyecto a realizar se basa en la creación de una base de datos que aborde el Área Artísticas del gran QuevedoFest.
+Dicha base de datos gestionará diversos aspectos del festival mediante numerosas tablas de datos, así como los artistas, el cartel, la agenda, las invitaciones, el club de fans y los clientes.
 
 El desarrollo de la base de datos irá evolucionando por etapas:   
 
@@ -17,4 +17,4 @@ Otro apartado a tratar es el de consultas, donde se reflejarán las más frecuen
 
 Relacionado con el anterior, también tendremos un espacio de vistas, secuencias, indices y scripts en PL/pgSQL.
 
-Los últimos aspectos que tendremos en cuenta 
+Los últimos aspectos que tendremos en cuenta serán algunos como cursores, planes de prueba y especificaciones en formato Gherkin o el diagrama de clases, entreo algunas otras.
