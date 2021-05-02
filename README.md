@@ -5,12 +5,12 @@
    - [x] 2.1. [Especificaciones](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/2-ModeloConceptual/2.1-Especificaciones.md)
    - [x] 2.2. [Diagrama Entidad-Relación](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/2-ModeloConceptual/2.2-DiagramaEntidadRelacion.md)
 - [ ] 3. Modelo Lógico 
-   - [x] 3.1. Modelo Relacional
-   - [ ] 3.2. Normalización/Desnormalización
+   - [x] 3.1. [Modelo Relacional](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/3-ModeloLogico/3.1-ModeloRelacional.md)
+   - [ ] 3.2. [Normalización/Desnormalización](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/3-ModeloLogico/3.2-Normalizacion.md)
 - [ ] 4. Modelo Físico
-   - [x] 4.1. Diagrama de base de datos (notación "Crow's feet" o IDEF1X)
-   - [x] 4.2. Creación de tablas y otros objetos
-   - [x] 4.3. Carga de datos de prueba
+   - [x] 4.1. [Diagrama de base de datos (notación "Crow's feet" o IDEF1X)](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/4-ModeloFisico/4.1-DiagramaIDEF1X.md)
+   - [x] 4.2. [Creación de tablas y otros objetos](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/4-ModeloFisico/4.2-CreacionTablas.md)
+   - [x] 4.3. [Carga de datos de prueba](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/4-ModeloFisico/4.3-CargaDatos.md)
 - [ ] 5. Consultas de la base de datos
    - [ ] 5.1. Consultas más frecuentes
    - [ ] 5.2. Consultas sencillas
