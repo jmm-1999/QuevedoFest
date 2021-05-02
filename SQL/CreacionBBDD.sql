@@ -47,7 +47,7 @@ CREATE TABLE entrada (
 
 /*TABLA CLIENTE*/
 CREATE TABLE cliente (
-    dni NUMERIC(9) PRIMARY KEY NOT NULL,
+    dni VARCHAR(9) PRIMARY KEY NOT NULL,
     id_entrada NUMERIC(3) NOT NULL,
     nombre VARCHAR(50),
     apellido1 VARCHAR(50),
@@ -60,12 +60,12 @@ CREATE TABLE cliente (
 
 /*TABLA MAYOR DE EDAD*/
 CREATE TABLE mayorEdad (
-    dni NUMERIC(9) PRIMARY KEY NOT NULL
+    dni VARCHAR(9) PRIMARY KEY NOT NULL
 );
 
 /*TABLA PERTENECER*/
 CREATE TABLE pertenecer (
-    dni_mayorEdad NUMERIC(9) NOT NULL,
+    dni_mayorEdad VARCHAR(9) NOT NULL,
     id_clubFans NUMERIC(3) NOT NULL,
     CONSTRAINT pertenecer_mayorEdad_dni FOREIGN KEY (dni_mayorEdad)
         REFERENCES mayorEdad (dni) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -76,7 +76,7 @@ CREATE TABLE pertenecer (
 /*TABLA CLUB DE FANS*/
 CREATE TABLE clubFans (
     id NUMERIC(3) PRIMARY KEY NOT NULL,
-    dni_artista NUMERIC(9) NOT NULL,
+    dni_artista VARCHAR(9) NOT NULL,
     fecha_creacion DATE NOT NULL,
     nombre VARCHAR(50),
     CONSTRAINT clubFans_artista_dni FOREIGN KEY (dni_artista)
@@ -85,7 +85,7 @@ CREATE TABLE clubFans (
 
 /*TABLA ARTISTA*/
 CREATE TABLE artista (
-    dni NUMERIC(9) PRIMARY KEY NOT NULL,
+    dni VARCHAR(9) PRIMARY KEY NOT NULL,
     id_cartel NUMERIC(6) NOT NULL,
     id_camerino NUMERIC(2) NOT NULL,
     nombre VARCHAR(40) NOT NULL,
@@ -98,12 +98,15 @@ CREATE TABLE artista (
         REFERENCES cartel (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT artista_camerino_id FOREIGN KEY (id_camerino)
         REFERENCES camerino (id) ON DELETE CASCADE ON UPDATE CASCADE
+    /*Añadimos FK posterior de fechaYHora camerino*/
 );
 
 /*TABLA CAMERINO*/
 CREATE TABLE camerino (
     id NUMERIC(2) PRIMARY KEY NOT NULL,
+    dni_artista VARCHAR(9) NOT NULL,
+    fechaYHora TIMESTAMP NOT NULL,
     gama VARCHAR(20),
-    fecha DATE NOT NULL,
-    hora TIME NOT NULL
+    CONSTRAINT camerino_artista_dni FOREIGN KEY (dni_artista)
+        REFERENCES artista (dni) ON DELETE CASCADE ON UPDATE CASCADE
 );

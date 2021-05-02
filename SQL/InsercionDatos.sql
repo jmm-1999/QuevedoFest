@@ -2,7 +2,7 @@
 INSERT INTO festival (id, nombre, fechaInicio, fechaFin) VALUES
     (1, 'ArenalSound', '2020-07-20', '2020-07-23'),
     (2, 'QuevedoFest', '2020-08-15', '2020-08-18'),
-    (3, 'QuevedoFest', '2021-07-10', '2021-08-14')
+    (3, 'QuevedoFest', '2021-07-10', '2021-08-13');
 
 /*INSERCIÓN DE DATOS EN LA TABLA CARTEL*/
 INSERT INTO cartel (id, id_festival, nombre, fecha, hora, generoMusical) VALUES
@@ -11,14 +11,75 @@ INSERT INTO cartel (id, id_festival, nombre, fecha, hora, generoMusical) VALUES
     (3, 1, 'Random', '2020-07-22', '15:30', 'Rock'),
     (4, 1, 'Reel', '2020-07-23', '15:00', 'Rap'),
 
-    (1, 2, 'Sun', '2020-08-15', '15:30', 'Hardcore'),
-    (2, 2, 'Fandom', '2020-08-16', '17:30', 'Reggae'),
-    (3, 2, 'Moon', '2020-08-17', '16:30', 'Pop'),
-    (4, 2, 'World', '2020-08-18', '15:00', 'Punky'),
+    (5, 2, 'Sun', '2020-08-15', '15:30', 'Hardcore'),
+    (6, 2, 'Fandom', '2020-08-16', '17:30', 'Reggae'),
+    (7, 2, 'Moon', '2020-08-17', '16:30', 'Pop'),
+    (8, 2, 'World', '2020-08-18', '15:00', 'Punky'),
 
-    (1, 3, 'Luxury', '2021-07-10', '15:00', 'Hardcore'),
-    (2, 3, 'Swing', '2021-07-11', '16:00', 'Heavy Metal'),
-    (3, 3, 'Gang', '2021-07-12', '17:00', 'Flamenco'),
-    (4, 3, 'Rumba', '2021-07-13', '15:30', 'Bachata'),
+    (9, 3, 'Luxury', '2021-07-10', '15:00', 'Hardcore'),
+    (10, 3, 'Swing', '2021-07-11', '16:00', 'Pop'),
+    (11, 3, 'Gang', '2021-07-12', '17:00', 'Flamenco'),
+    (12, 3, 'Rumba', '2021-07-13', '15:30', 'Bachata');
 
-    (1, 3, 'Luxury', '2021-07-10', '15:00', 'Hardcore'),
+/*INSERCIÓN DE DATOS EN LA TABLA ESCENARIO*/
+INSERT INTO escenario (id, id_cartel, nombre, fecha, hora, capacidad) VALUES
+    (1, 3, 'Salvage', '2020-07-22', '15:30', 1000),
+    (2, 2, 'BigSound', '2020-08-16', '17:30', 1200),
+    (3, 1, 'Kontrol', '2021-07-10', '15:00', 950),
+    (4, 1, 'Fire', '2020-08-15', '15:30', 900),
+    (5, 3, 'Summer', '2021-07-12', '17:00', 950);
+
+/*INSERCIÓN DE DATOS EN LA TABLA ENTRADA*/
+INSERT INTO entrada (id, id_festival, fecha, precio) VALUES
+    (1, 1, '2020-07-20', 80),
+    (2, 2, '2020-08-15', 70),
+    (3, 3, '2021-07-10', 90),
+    (4, 3, '2021-07-10', 90),
+    (5, 3, '2021-07-10', 90);
+
+/*INSERCIÓN DE DATOS EN LA TABLA CLIENTE*/
+INSERT INTO cliente (dni, id_entrada, nombre, apellido1, apellido2, fechaNac, localidad) VALUES
+    ('12365478R', 1, 'Raúl', 'Gonzalez', 'Fernandez', '1998-12-20', 'Móstoles'),
+    ('78954623L', 2, 'Cristiano', 'Ronaldo', 'Pérez', '1997-10-05', 'Mérida'),
+    ('45612378D', 3, 'Luisa', 'Ruiz', 'Verde', '2005-07-11', 'Alcorcón'),
+    ('65784147M', 4, 'Carla', 'Alonso', 'De Mateo', '2006-08-15', 'Getafe'),
+    ('65897423N', 5, 'Sergio', 'Ramos', 'Palao', '1990-04-24', 'Rivas-Vaciamadrid');
+
+/*INSERCIÓN DE DATOS EN LA TABLA MAYOR DE EDAD*/
+INSERT INTO mayorEdad (dni) VALUES
+    ('12365478R'),
+    ('78954623L'),
+    ('65897423N');
+
+/*INSERCIÓN DE DATOS EN LA TABLA PERTENECER*/
+INSERT INTO pertenecer (dni_mayorEdad, id_clubFans) VALUES
+    ('78954623L', 1),
+    ('65897423N', 3);
+
+/*INSERCIÓN DE DATOS EN LA TABLA CLUB DE FANS*/
+INSERT INTO clubFans (id, dni_artista, fecha_creacion, nombre) VALUES
+    (1, '45698235S', '2017-09-18', 'Los Tanguitos'),
+    (2, '78998754T', '2015-10-25', 'Believers'),
+    (3, '25896346K', '2018-02-20', 'Ros-alitas');
+
+/*INSERCIÓN DE DATOS EN LA TABLA ARTISTA*/
+INSERT INTO artista (dni, id_cartel, id_camerino, nombre, nacionalidad, salario, generoMusical, hora_entrada, hora_salida) VALUES
+    ('14725835J', 1, 1, 'Kidd Keo', 'España', 1500, 'Trap', '15:30', '17:30'),
+    ('36985214H', 1, 2, '2020-07-20 16:30:00', 'Camin', 'España', 1000, 'Trap', '17:30', '18:30'),
+    ('25896346K', 1, 1, '2020-07-20 17:30:00', 'Rosalia', 'España', 1600, 'Trap', '18:30', '22:30'),
+    ('45698235S', 1, 2, '2020-07-20 21:30:00', 'C. Tangana', 'España', 1900, 'Trap', '22:30', '24:00'),
+    ('86249517B', 9, 1, '2021-07-10 14:00:00', 'AngerFirst', 'Alemania', 2000, 'Hardcore', '15:00', '19:30'),
+    ('86249517B', 9, 2, '2021-07-10 18:30:00', 'HeadHunter', 'Holanda', 2200, 'Hardcore', '19:30', '20:30'),
+    ('75324861M', 9, 1, '2021-07-10 19:03:00', 'Coone', 'Francia', 2100, 'Hardcore', '20:30', '22:00'),
+    ('78998754T', 10, 1, '2021-07-11 15:30:00', 'Justin Biever', 'EEUU', 2500, 'Pop', '16:30', '19:00'),
+    ('48269125W', 10, 2, '2021-07-11 18:00:00', 'Jennifer López', 'EEUU', 2600, 'Pop', '19:00', '20:00'),
+    ('45987623G', 11, 2, '2021-07-12 16:00:00', 'Daviles de Novelda', 'España', 1200, 'Flamenco', '17:00', '18:30'),
+    ('64859127F', 11, 1, '2021-07-12 17:30:00', 'Chambao', 'España', 1250, 'Flamenco', '18:30', '19:30'),
+    ('72486593H', 12, 2, '2021-07-12 14:00:00', 'Romeo Santos', 1700, 'Bachata', '15:30', '18:00'),
+    ('81592634T', 12, 2, '2021-07-12 18:00:00', 'Wellinton Quiw', 800, 'Bachata', '18:30', '19:00'),
+    ('94587126A', 12, 1, '2021-07-12 18:00:00', 'Farruko', 2400, 'Bachata', '19:00', '21:00');
+
+/*INSERCIÓN DE DATOS EN LA TABLA CAMERINO*/
+INSERT INTO camerino (id, dni_artista, fechaYHora, gama) VALUES
+    (1, '', '2020-07-20 14:30:00', 'Alta'),
+    (2);
