@@ -53,8 +53,8 @@ INSERT INTO mayorEdad (dni) VALUES
 
 /*INSERCIÓN DE DATOS EN LA TABLA PERTENECER*/
 INSERT INTO pertenecer (dni_mayorEdad, id_clubFans) VALUES
-    ('78954623L', 1),
-    ('65897423N', 3);
+    ('78954623L', 001),
+    ('65897423N', 003);
 
 /*INSERCIÓN DE DATOS EN LA TABLA CLUB DE FANS*/
 INSERT INTO clubFans (id, dni_artista, fecha_creacion, nombre) VALUES
@@ -63,23 +63,40 @@ INSERT INTO clubFans (id, dni_artista, fecha_creacion, nombre) VALUES
     (3, '25896346K', '2018-02-20', 'Ros-alitas');
 
 /*INSERCIÓN DE DATOS EN LA TABLA ARTISTA*/
-INSERT INTO artista (dni, id_cartel, id_camerino, nombre, nacionalidad, salario, generoMusical, hora_entrada, hora_salida) VALUES
-    ('14725835J', 1, 1, 'Kidd Keo', 'España', 1500, 'Trap', '15:30', '17:30'),
-    ('36985214H', 1, 2, '2020-07-20 16:30:00', 'Camin', 'España', 1000, 'Trap', '17:30', '18:30'),
-    ('25896346K', 1, 1, '2020-07-20 17:30:00', 'Rosalia', 'España', 1600, 'Trap', '18:30', '22:30'),
-    ('45698235S', 1, 2, '2020-07-20 21:30:00', 'C. Tangana', 'España', 1900, 'Trap', '22:30', '24:00'),
-    ('86249517B', 9, 1, '2021-07-10 14:00:00', 'AngerFirst', 'Alemania', 2000, 'Hardcore', '15:00', '19:30'),
-    ('86249517B', 9, 2, '2021-07-10 18:30:00', 'HeadHunter', 'Holanda', 2200, 'Hardcore', '19:30', '20:30'),
-    ('75324861M', 9, 1, '2021-07-10 19:03:00', 'Coone', 'Francia', 2100, 'Hardcore', '20:30', '22:00'),
-    ('78998754T', 10, 1, '2021-07-11 15:30:00', 'Justin Biever', 'EEUU', 2500, 'Pop', '16:30', '19:00'),
-    ('48269125W', 10, 2, '2021-07-11 18:00:00', 'Jennifer López', 'EEUU', 2600, 'Pop', '19:00', '20:00'),
-    ('45987623G', 11, 2, '2021-07-12 16:00:00', 'Daviles de Novelda', 'España', 1200, 'Flamenco', '17:00', '18:30'),
-    ('64859127F', 11, 1, '2021-07-12 17:30:00', 'Chambao', 'España', 1250, 'Flamenco', '18:30', '19:30'),
-    ('72486593H', 12, 2, '2021-07-12 14:00:00', 'Romeo Santos', 1700, 'Bachata', '15:30', '18:00'),
-    ('81592634T', 12, 2, '2021-07-12 18:00:00', 'Wellinton Quiw', 800, 'Bachata', '18:30', '19:00'),
-    ('94587126A', 12, 1, '2021-07-12 18:00:00', 'Farruko', 2400, 'Bachata', '19:00', '21:00');
+INSERT INTO artista (dni, id_cartel, fechaYHora_camerino, nombre, nacionalidad, salario, generoMusical, hora_entrada, hora_salida) VALUES
+    ('14725835J', 1, '2020-07-20 14:30:00', 'Kidd Keo', 'España', 1500, 'Trap', '15:30', '17:30'),
+    ('36985214H', 1, '2020-07-20 16:30:00', 'Camin', 'España', 1000, 'Trap', '17:30', '18:30'),
+    ('25896346K', 1, '2020-07-20 17:30:00', 'Rosalia', 'España', 1600, 'Trap', '18:30', '22:30'),
+    ('45698235S', 1, '2020-07-20 21:30:00', 'C. Tangana', 'España', 1900, 'Trap', '22:30', '24:00'),
+    ('86249517B', 9, '2021-07-10 14:00:00', 'AngerFirst', 'Alemania', 2000, 'Hardcore', '15:00', '19:30'),
+    ('54982175B', 9, '2021-07-10 18:30:00', 'HeadHunter', 'Holanda', 2200, 'Hardcore', '19:30', '20:30'),
+    ('75324861M', 9, '2021-07-10 19:30:00', 'Coone', 'Francia', 2100, 'Hardcore', '20:30', '22:00'),
+    ('78998754T', 10, '2021-07-11 15:30:00', 'Justin Biever', 'EEUU', 2500, 'Pop', '16:30', '19:00'),
+    ('48269125W', 10, '2021-07-11 18:00:00', 'Jennifer López', 'EEUU', 2600, 'Pop', '19:00', '20:00'),
+    ('45987623G', 11, '2021-07-12 16:00:00', 'Daviles de Novelda', 'España', 1200, 'Flamenco', '17:00', '18:30'),
+    ('64859127F', 11, '2021-07-12 17:30:00', 'Chambao', 'España', 1250, 'Flamenco', '18:30', '19:30'),
+    ('72486593H', 12, '2021-07-12 14:00:00', 'Romeo Santos', 'Colombia', 1700, 'Bachata', '15:30', '18:00'),
+    ('81592634T', 12, '2021-07-12 18:15:00', 'Wellinton Quiw', 'Colombia', 800, 'Bachata', '18:30', '19:00'),
+    ('94587126A', 12, '2021-07-12 18:00:00', 'Farruko', 'Puerto Rico', 2400, 'Bachata', '19:00', '21:00');
 
 /*INSERCIÓN DE DATOS EN LA TABLA CAMERINO*/
-INSERT INTO camerino (id, dni_artista, fechaYHora, gama) VALUES
-    (1, '', '2020-07-20 14:30:00', 'Alta'),
-    (2);
+INSERT INTO camerino (fechaYHora, id, gama) VALUES
+    ('2020-07-20 14:30:00', 1,'Alta'),
+    ('2020-07-20 16:30:00', 2, 'Media'),
+    ('2020-07-20 17:30:00', 1, 'Alta'),
+    ('2020-07-20 21:30:00', 1 , 'Alta'),
+    ('2021-07-10 14:00:00', 2 , 'Media'),
+    ('2021-07-10 18:30:00', 1, 'Alta'),
+    ('2021-07-10 19:30:00', 2, 'Media'),
+    ('2021-07-11 15:30:00', 1, 'Alta'),
+    ('2021-07-11 18:00:00', 1, 'Alta'),
+    ('2021-07-12 16:00:00', 2, 'Media'),
+    ('2021-07-12 17:30:00', 2, 'Media'),
+    ('2021-07-12 14:00:00', 2, 'Media'),
+    ('2021-07-12 18:15:00', 1, 'Alta'),
+    ('2021-07-12 18:00:00', 2, 'Alta');
+
+
+
+
+

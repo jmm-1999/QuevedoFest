@@ -8,7 +8,8 @@ CREATE DATABASE QuevedoFest OWNER javi;
 CREATE TABLE festival (
     id NUMERIC(6) PRIMARY KEY,
     nombre VARCHAR(30),
-    fecha DATE
+    fechaInicio DATE NOT NULL,
+    fechaFIn DATE NOT NULL
 );
 
 /*TABLA CARTEL*/
@@ -87,7 +88,7 @@ CREATE TABLE clubFans (
 CREATE TABLE artista (
     dni VARCHAR(9) PRIMARY KEY NOT NULL,
     id_cartel NUMERIC(6) NOT NULL,
-    id_camerino NUMERIC(2) NOT NULL,
+    fechaYHora_camerino TIMESTAMP NOT NULL,
     nombre VARCHAR(40) NOT NULL,
     nacionalidad VARCHAR(50) NOT NULL,
     salario NUMERIC(5) NOT NULL,
@@ -96,17 +97,13 @@ CREATE TABLE artista (
     hora_salida TIME,
     CONSTRAINT artista_cartel_id FOREIGN KEY (id_cartel)
         REFERENCES cartel (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT artista_camerino_id FOREIGN KEY (id_camerino)
-        REFERENCES camerino (id) ON DELETE CASCADE ON UPDATE CASCADE
-    /*Añadimos FK posterior de fechaYHora camerino*/
+    CONSTRAINT artista_camerino_fechaYHora FOREIGN KEY (fechaYHora_camerino)
+        REFERENCES camerino (fechaYHora) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /*TABLA CAMERINO*/
 CREATE TABLE camerino (
-    id NUMERIC(2) PRIMARY KEY NOT NULL,
-    dni_artista VARCHAR(9) NOT NULL,
-    fechaYHora TIMESTAMP NOT NULL,
-    gama VARCHAR(20),
-    CONSTRAINT camerino_artista_dni FOREIGN KEY (dni_artista)
-        REFERENCES artista (dni) ON DELETE CASCADE ON UPDATE CASCADE
+    fechaYHora TIMESTAMP PRIMARY KEY NOT NULL,
+    id NUMERIC(2) NOT NULL,
+    gama VARCHAR(20)
 );
