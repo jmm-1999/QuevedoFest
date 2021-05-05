@@ -1,10 +1,10 @@
-/*INSERCIÓN DE DATOS EN LA TABLA FESTIVAL*/
+--INSERCIÓN DE DATOS EN LA TABLA FESTIVAL
 INSERT INTO festival (id, nombre, fechaInicio, fechaFin) VALUES
     (1, 'ArenalSound', '2020-07-20', '2020-07-23'),
     (2, 'QuevedoFest', '2020-08-15', '2020-08-18'),
     (3, 'QuevedoFest', '2021-07-10', '2021-08-13');
 
-/*INSERCIÓN DE DATOS EN LA TABLA CARTEL*/
+--INSERCIÓN DE DATOS EN LA TABLA CARTEL
 INSERT INTO cartel (id, id_festival, nombre, fecha, hora, generoMusical) VALUES
     (1, 1, 'Savage', '2020-07-20', '15:30', 'Trap'),
     (2, 1, 'Colors', '2020-07-21', '16:30', 'Reggaetón'),
@@ -21,7 +21,7 @@ INSERT INTO cartel (id, id_festival, nombre, fecha, hora, generoMusical) VALUES
     (11, 3, 'Gang', '2021-07-12', '17:00', 'Flamenco'),
     (12, 3, 'Rumba', '2021-07-13', '15:30', 'Bachata');
 
-/*INSERCIÓN DE DATOS EN LA TABLA ESCENARIO*/
+--INSERCIÓN DE DATOS EN LA TABLA ESCENARIO
 INSERT INTO escenario (id, id_cartel, nombre, fecha, hora, capacidad) VALUES
     (1, 3, 'Salvage', '2020-07-22', '15:30', 1000),
     (2, 2, 'BigSound', '2020-08-16', '17:30', 1200),
@@ -29,7 +29,7 @@ INSERT INTO escenario (id, id_cartel, nombre, fecha, hora, capacidad) VALUES
     (4, 1, 'Fire', '2020-08-15', '15:30', 900),
     (5, 3, 'Summer', '2021-07-12', '17:00', 950);
 
-/*INSERCIÓN DE DATOS EN LA TABLA ENTRADA*/
+--INSERCIÓN DE DATOS EN LA TABLA ENTRADA
 INSERT INTO entrada (id, id_festival, fecha, precio) VALUES
     (1, 1, '2020-07-20', 80),
     (2, 2, '2020-08-15', 70),
@@ -37,7 +37,7 @@ INSERT INTO entrada (id, id_festival, fecha, precio) VALUES
     (4, 3, '2021-07-10', 90),
     (5, 3, '2021-07-10', 90);
 
-/*INSERCIÓN DE DATOS EN LA TABLA CLIENTE*/
+--INSERCIÓN DE DATOS EN LA TABLA CLIENTE
 INSERT INTO cliente (dni, id_entrada, nombre, apellido1, apellido2, fechaNac, localidad) VALUES
     ('12365478R', 1, 'Raúl', 'Gonzalez', 'Fernandez', '1998-12-20', 'Móstoles'),
     ('78954623L', 2, 'Cristiano', 'Ronaldo', 'Pérez', '1997-10-05', 'Mérida'),
@@ -45,24 +45,38 @@ INSERT INTO cliente (dni, id_entrada, nombre, apellido1, apellido2, fechaNac, lo
     ('65784147M', 4, 'Carla', 'Alonso', 'De Mateo', '2006-08-15', 'Getafe'),
     ('65897423N', 5, 'Sergio', 'Ramos', 'Palao', '1990-04-24', 'Rivas-Vaciamadrid');
 
-/*INSERCIÓN DE DATOS EN LA TABLA MAYOR DE EDAD*/
+    --INSERCIÓN POSTERIOR EN CLIENTE
+    INSERT INTO cliente (telefono) VALUES
+        ('654987321'),
+        ('645123789'),
+        ('698675645'),
+        ('636521425'),
+        ('678951423');
+
+--INSERCIÓN DE DATOS EN LA TABLA MAYOR DE EDAD
 INSERT INTO mayorEdad (dni) VALUES
     ('12365478R'),
     ('78954623L'),
     ('65897423N');
 
-/*INSERCIÓN DE DATOS EN LA TABLA PERTENECER*/
+--INSERCIÓN DE DATOS EN LA TABLA PERTENECER
 INSERT INTO pertenecer (dni_mayorEdad, id_clubFans) VALUES
     ('78954623L', 001),
     ('65897423N', 003);
 
-/*INSERCIÓN DE DATOS EN LA TABLA CLUB DE FANS*/
+--INSERCIÓN DE DATOS EN LA TABLA CLUB DE FANS
 INSERT INTO clubFans (id, dni_artista, fecha_creacion, nombre) VALUES
     (1, '45698235S', '2017-09-18', 'Los Tanguitos'),
     (2, '78998754T', '2015-10-25', 'Believers'),
     (3, '25896346K', '2018-02-20', 'Ros-alitas');
 
-/*INSERCIÓN DE DATOS EN LA TABLA ARTISTA*/
+    --INSERCIÓN POSTERIOR EN CLUB DE FANS
+    INSERT INTO clubFans (recaudacion) VALUES
+        (3000),
+        (2700),
+        (1800);
+
+--INSERCIÓN DE DATOS EN LA TABLA ARTISTA
 INSERT INTO artista (dni, id_cartel, fechaYHora_camerino, nombre, nacionalidad, salario, generoMusical, hora_entrada, hora_salida) VALUES
     ('14725835J', 1, '2020-07-20 14:30:00', 'Kidd Keo', 'España', 1500, 'Trap', '15:30', '17:30'),
     ('36985214H', 1, '2020-07-20 16:30:00', 'Camin', 'España', 1000, 'Trap', '17:30', '18:30'),
@@ -79,7 +93,25 @@ INSERT INTO artista (dni, id_cartel, fechaYHora_camerino, nombre, nacionalidad, 
     ('81592634T', 12, '2021-07-12 18:15:00', 'Wellinton Quiw', 'Colombia', 800, 'Bachata', '18:30', '19:00'),
     ('94587126A', 12, '2021-07-12 18:00:00', 'Farruko', 'Puerto Rico', 2400, 'Bachata', '19:00', '21:00');
 
-/*INSERCIÓN DE DATOS EN LA TABLA CAMERINO*/
+    --INSERCIÓN POSTERIOR EN ARTISTA
+    INSERT INTO artista (dni_manager) VALUES 
+        ('56351711M'),
+        ('45447824A'),
+        ('65686764S'),
+        ('32365362P'),
+        ('21546866W'),
+        ('45447824A'),
+        ('95987994I'),
+        ('56351711M'),
+        ('12321141T'),
+        ('65686764S'),
+        ('74455778H'),
+        ('46685513F'),
+        ('55566989Q'),
+        ('56351711M');
+
+
+--INSERCIÓN DE DATOS EN LA TABLA CAMERINO
 INSERT INTO camerino (fechaYHora, id, gama) VALUES
     ('2020-07-20 14:30:00', 1,'Alta'),
     ('2020-07-20 16:30:00', 2, 'Media'),
@@ -96,6 +128,18 @@ INSERT INTO camerino (fechaYHora, id, gama) VALUES
     ('2021-07-12 18:15:00', 1, 'Alta'),
     ('2021-07-12 18:00:00', 2, 'Alta');
 
+--INSERCIÓN DE DATOS EN LA TABLA MÁNAGER (TABLA CREADA POSTERIORMENTE)
+INSERT INTO manager (dni, nombre_completo, telefono) VALUES
+    ('55566989Q', 'Luis Fernández Gomez', '699885544'),
+    ('45447824A', 'Manolo Lama', '644777456'),
+    ('65686764S', 'María Gomez Palos', '633662211'),
+    ('32365362P', 'Ramón Moreno', '644665544'),
+    ('21546866W', 'Nuria Ros Plaz', '685867417'),
+    ('95987994I', 'Mariano Rajoy Rojo', '677284663'),
+    ('56351711M', 'Irene Montero', '623245112'),
+    ('12321141T', 'Sebastián Filimón', '673525366'),
+    ('74455778H', 'Jaime Montaner Pla', '685958685'),
+    ('46685513F', 'Pablo Moreno Pérez', '666666645');
 
 
 

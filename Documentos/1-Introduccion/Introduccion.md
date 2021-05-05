@@ -8,11 +8,11 @@ Dicha base de datos gestionará diversos aspectos del festival mediante numerosa
 
 El desarrollo de la base de datos irá evolucionando por etapas:   
 
-Lo primero a realizar es el modelo conceptual, donde se indicarán las especificaciones y se hará el diagrama Entidad-Relación de nuestra base de datos indicando la cardinalidad y la relación entre las distintas tablas. 
+Lo primero a realizar es el modelo conceptual, es decir, llevar acabo el desarrollo de una estructura mediante un esquema conceptual. De él se indicarán las especificaciones y se hará el diagrama Entidad-Relación de nuestra base de datos, indicando la cardinalidad y la relación entre las distintas tablas. 
 
-El segundo paso hablaremos sobre el modelo lógico, enfocando el modelo relacional y la normalización de las tablas.  
+En el segundo paso hablaremos sobre el modelo lógico, que establece una estructura sobre los datos independientemente de su almacenamiento. Enfocaremos el modelo relacional y la normalización de las tablas.  
 
-Como último modelo a explicar tenemos el físico, en el que crearemos las tablas, diseñaremos el diagrama de la base de datos y cargaremos datos de prueba.  
+Como último modelo a explicar tenemos el físico, en el que crearemos las tablas, diseñaremos el diagrama de la base de datos y cargaremos diversos datos de prueba. Dicho modelo representa como se construirá la base de datos. 
 
 Otro apartado a tratar es el de consultas, donde se reflejarán las más frecuentes, las más sencillas y las subconsultas, entre otras. Nos interesará saber, por ejemplo, cuántos festivales y en qué fechas acontecen, el número de carteles que ofrecen, las entradas vendidas y su recaudación total, el número de espectadores o clientes que asisten, los artistas que asisten y pertenecen a cada cartel (y su sueldo), la gestión de los clubes de fans... 
 
