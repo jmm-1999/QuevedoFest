@@ -55,11 +55,10 @@ CREATE TABLE cliente (
     apellido2 VARCHAR(50),
     fechaNac DATE,
     localidad VARCHAR(40),
+    telefono NUMERIC(9) NOT NULL,
     CONSTRAINT cliente_entrada_id FOREIGN KEY (id_entrada)
         REFERENCES entrada (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-    --AÑADIMOS, DE FORMA POSTERIOR, LA COLUMNA TELÉFONO
-    ALTER TABLE cliente ADD COLUMN telefono NUMERIC NOT NULL;
 
 --TABLA MAYOR DE EDAD
 CREATE TABLE mayorEdad (
@@ -82,16 +81,16 @@ CREATE TABLE clubFans (
     dni_artista VARCHAR(9) NOT NULL,
     fecha_creacion DATE NOT NULL,
     nombre VARCHAR(50),
+    recaudacion NUMERIC NOT NULL,
     CONSTRAINT clubFans_artista_dni FOREIGN KEY (dni_artista)
         REFERENCES artista (dni) ON DELETE CASCADE ON UPDATE CASCADE
 );
-    --AÑADIMOS, DE FORMA POSTERIOR, LA COLUMNA RECAUDACIÓN
-    ALTER TABLE clubFans ADD COLUMN recaudacion NUMERIC NOT NULL;
 
 --TABLA ARTISTA
 CREATE TABLE artista (
     dni VARCHAR(9) PRIMARY KEY NOT NULL,
     id_cartel NUMERIC(6) NOT NULL,
+    dni_manager VARCHAR(9) NOT NULL,
     fechaYHora_camerino TIMESTAMP NOT NULL,
     nombre VARCHAR(40) NOT NULL,
     nacionalidad VARCHAR(50) NOT NULL,
@@ -102,19 +101,19 @@ CREATE TABLE artista (
     CONSTRAINT artista_cartel_id FOREIGN KEY (id_cartel)
         REFERENCES cartel (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT artista_camerino_fechaYHora FOREIGN KEY (fechaYHora_camerino)
-        REFERENCES camerino (fechaYHora) ON DELETE CASCADE ON UPDATE CASCADE
+        REFERENCES camerino (fechaYHora) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT artista_manager_dni FOREIGN KEY (dni_manager)
+        REFERENCES manager (dni) ON DELETE CASCADE ON UPDATE CASCADE
 );
-    --AÑADIMOS, DE FORMA POSTERIOR, LA COLUMNA ID_MÁNAGER Y LA ESTABLECEMOS COMO FK
-    ALTER TABLE artista ADD COLUMN dni_manager NUMERIC(2) NOT NULL;
-    ALTER TABLE artista ADD CONSTRAINT artista_manager_dni FOREIGN KEY (dni_manager)
-        REFERENCES manager (dni) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --TABLA CAMERINO
 CREATE TABLE camerino (
     fechaYHora TIMESTAMP PRIMARY KEY NOT NULL,
     id NUMERIC(2) NOT NULL,
-    gama VARCHAR(20)
+    gama VARCHAR(20),
+    nombre VARCHAR(30)
 );
+
 
 --TABLA MÁNAGER CREADA POSTERIORMENTE
 CREATE TABLE manager (
