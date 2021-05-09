@@ -12,8 +12,8 @@
    - [x] 4.2. [Creación de tablas y otros objetos](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/4-ModeloFisico/4.2-CreacionTablas.md)
    - [x] 4.3. [Carga de datos de prueba](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/4-ModeloFisico/4.3-CargaDatos.md)
 - [ ] 5. Consultas de la base de datos
-   - [ ] 5.1. Consultas más frecuentes
-   - [ ] 5.2. Consultas sencillas
+   - [ ] 5.1. [Consultas más frecuentes](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.1-ConsultasFrecuentes.md)
+   - [ ] 5.2. [Consultas sencillas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.2-ConsultasSencillas.md)
    - [ ] 5.3. Consultas de agregación y resumen
    - [ ] 5.4. Consultas con subconsultas
 - [ ] 6. Vistas, secuencias e índices
