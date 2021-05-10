@@ -1,13 +1,20 @@
 --CONSULTAS SOBRE LA BASE DE DATOS DE AGREGACIÓN Y AGRUPAMIENTO
 
---¿Qué artista cobra o ha cobrado menos?
-SELECT MIN(salario) FROM artista;
+--¿Qué artista cobra o ha cobrado menos de aquellos cuyo nombre contiene la 'o'?
+SELECT MIN(salario), nombre FROM artista WHERE nombre LIKE '%o%' GROUP BY nombre;
 
 ```Resultado
- min
------
- 800
-(1 row)
+ min  |       nombre
+------+--------------------
+  800 | Wellinton Quiw
+ 2400 | Farruko
+ 1200 | Daviles de Novelda
+ 1700 | Romeo Santos
+ 1600 | Rosalia
+ 1250 | Chambao
+ 1500 | Kidd Keo
+ 2100 | Coone
+(8 rows)
 ```
 
 --¿Cuál es la media de recaudaciones obtenidas con los clubs de fans?
