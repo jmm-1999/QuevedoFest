@@ -14,8 +14,8 @@
 - [x] 5. Consultas de la base de datos
    - [x] 5.1. [Consultas más frecuentes](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.1-ConsultasFrecuentes.md)
    - [x] 5.2. [Consultas sencillas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.2-ConsultasSencillas.md)
-   - [x] 5.3. [Consultas de agregación y resumen]()
-   - [x] 5.4. [Consultas con subconsultas]()
+   - [x] 5.3. [Consultas de agregación y resumen](https://github.com/jmm-1999/QuevedoFest/blob/master/SQL/ConsultasAgregacion.sql)
+   - [x] 5.4. [Consultas con subconsultas](https://github.com/jmm-1999/QuevedoFest/blob/master/SQL/Subconsultas.sql)
 - [ ] 6. Vistas, secuencias e índices
 - [ ] 7. Scripts en PL/pgSQL
 - [ ] 8. Extras
