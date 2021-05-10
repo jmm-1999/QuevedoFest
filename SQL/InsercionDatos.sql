@@ -53,8 +53,8 @@ INSERT INTO mayorEdad (dni) VALUES
 
 --INSERCIÓN DE DATOS EN LA TABLA PERTENECER
 INSERT INTO pertenecer (dni_mayorEdad, id_clubFans) VALUES
-    ('78954623L', 001),
-    ('65897423N', 003);
+    ('78954623L', 1),
+    ('65897423N', 3);
 
 --INSERCIÓN DE DATOS EN LA TABLA CLUB DE FANS
 INSERT INTO clubFans (id, dni_artista, fecha_creacion, nombre, recaudacion) VALUES
