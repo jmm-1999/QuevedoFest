@@ -61,8 +61,19 @@ GROUP BY cf.nombre, a.nombre;
 (1 row)
 ```
 
---¿Qué artista y para qué cartel toca en el escenario Luxury?
+--¿Qué artista es el que más cobra del cartel número 12?
+SELECT a.nombre AS "Nombre artista", a.salario AS "Sueldo artista", c.id AS "ID Cartel"
+FROM artista a
+    JOIN cartel c ON (a.id_cartel = c.id)
+WHERE a.salario =
+    (SELECT MAX(salario) FROM artista WHERE id_cartel = 12);
 
+```Resultado
+ Nombre artista | Sueldo artista | ID Cartel
+----------------+----------------+-----------
+ Farruko        |           2400 |        12
+(1 row)
+```
 
 --¿En qué escenario y a qué hora canta Chambao?
 SELECT e.id AS "ID Escenario", e.nombre AS "Nombre escenario", a.nombre  AS "Nombre artista", a.hora_entrada, a.hora_salida
