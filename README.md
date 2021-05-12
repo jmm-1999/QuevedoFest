@@ -16,7 +16,7 @@
    - [x] 5.2. [Consultas sencillas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.2-ConsultasSencillas.md)
    - [x] 5.3. [Consultas de agregación y resumen](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.3-ConsultasAgregaci%C3%B3n.md)
    - [x] 5.4. [Consultas con subconsultas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.4-Subconsultas.md)
-- [x] 6. [Vistas, secuencias e índices]()
+- [x] 6. [Vistas, secuencias e índices](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/6-VistasSecuenciasIndices/6-VistasSecuenciasindices.md)
 - [ ] 7. Scripts en PL/pgSQL
 - [ ] 8. Extras
    - [ ] 8.1. Cursores
