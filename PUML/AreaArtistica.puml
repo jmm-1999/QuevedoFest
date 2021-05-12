@@ -1,0 +1,119 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+left to right direction
+
+rectangle ÁreaArtística {
+    class Festival {
+        - id: Integer
+        - nombre: String
+        - fechaInicio: Timestamp
+        - fechaFin: Timestamp
+        + crearFestival()
+    }
+
+    class Cartel {
+        -id: Integer
+        -idFestival: Integer
+        -nombre: String
+        -fecha: Date
+        -hora: Time
+        -géneroMusical: GéneroMusical
+        + crearCartel(Festival)
+    }
+
+    class Escenario {
+        -id: Integer
+        -idCartel: Integer
+        -nombre: String
+        -capacidad: Integer
+        -fecha: Date
+        -hora: Time
+    }
+
+    class Entrada {
+        -id: Integer
+        -idFestival: Integer
+        -precio: Integer
+        -fecha: Timestamp
+    }
+
+    class Cliente {
+        -dni: String
+        -idEntrada: Integer
+        -nombre: String
+        -apellido1: String
+        -apellido2: String
+        -fechaNacimiento: Date
+        -localidad: String
+        -teléfono: String
+    }
+
+    class MayorEdad {
+        -dni: String
+    }
+
+    class Pertenecer {
+        -dniMayorEdad: String
+        -idClubFans: Integer
+    }
+
+    class ClubFans {
+        -id: Integer
+        -dniArtista: String
+        -fechaCreación: Date
+        -nombre: String
+        -recaudación: Integer
+    }
+
+    class Artista {
+        -dni: String
+        -idCartel: Integer
+        -fechaYHoraCamerino: Timestamp
+        -dniManager: String
+        -nombre: String
+        -nacionalidad: String
+        -salario: Integer
+        -géneroMusical: GéneroMusical
+        -horaEntrada: Time
+        -horaSalida: Time
+    }
+
+    class Camerino {
+        -fechaYHora: Timestamp
+        -id: Integer
+        -gama: String
+        -nombre: String
+    }
+
+    class Mánager {
+        -dni: String
+        -teléfono: String
+        -nombreCompleto: String
+    }
+
+    enum GéneroMusical <<enumeration>> {
+        Trap
+        Rock
+        Reggaetón
+        Hardcore
+        Flamenco
+        Bachata
+        Pop
+        Punky
+        Reggae
+        Rap
+    }
+
+    Festival "1" *-- "N" Cartel: promociona
+    Cartel "N" --* "1" Escenario: se da en
+    Festival "1" *-- "N" Entrada: vende
+    Entrada "1" -- "1" Cliente: compra
+    Cliente <|-- MayorEdad
+    MayorEdad "1..N" o-- "0..N" Pertenecer
+    Pertenecer "N" --o "N" ClubFans
+    ClubFans "1" -- "1" Artista
+    Artista "1" -- "1" Camerino
+    Artista "N" -- "1" Mánager
+}
+@enduml

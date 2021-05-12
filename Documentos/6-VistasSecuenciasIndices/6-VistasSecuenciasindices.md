@@ -42,6 +42,53 @@ quevedofest=> SELECT * FROM artistas_carteles;
 (3 rows)
 ```
 
+* **Información de los artistas (relevante a su identidad, no a la actuación) que cobran más de 1600€ con sus mánager**
+```sql
+CREATE OR REPLACE VIEW artistas_manager AS
+SELECT a.dni AS "DNI artista", a.nombre AS "Nombre artista", a.nacionalidad, a.salario, m.*
+FROM artista a 
+    JOIN manager m ON (a.dni_manager = m.dni)
+WHERE a.salario > 1600;
+```
+```Resultado
+quevedofest=> SELECT * FROM artistas_manager ;
+ DNI artista | Nombre artista | nacionalidad | salario |    dni    |  nombre_completo   | telefono
+-------------+----------------+--------------+---------+-----------+--------------------+-----------
+ 54982175B   | HeadHunter     | Holanda      |    2200 | 45447824A | Manolo Lama        | 644777456
+ 45698235S   | C. Tangana     | España       |    1900 | 32365362P | Ramón Moreno       | 644665544
+ 86249517B   | AngerFirst     | Alemania     |    2000 | 21546866W | Nuria Ros Plaz     | 685867417
+ 75324861M   | Coone          | Francia      |    2100 | 95987994I | Mariano Rajoy Rojo | 677284663
+ 94587126A   | Farruko        | Puerto Rico  |    2400 | 56351711M | Irene Montero      | 623245112
+ 78998754T   | Justin Biever  | EEUU         |    2500 | 56351711M | Irene Montero      | 623245112
+ 48269125W   | Jennifer López | EEUU         |    2600 | 12321141T | Sebastián Filimón  | 673525366
+ 72486593H   | Romeo Santos   | Colombia     |    1700 | 46685513F | Pablo Moreno Pérez | 666666645
+(8 rows)
+```
+
+* **Información de la actuación de los artistas cuyo género musical es Flamenco, Hardcore o Trap con sus respectivos camerinos**
+```sql
+CREATE OR REPLACE VIEW artistas_camerino AS
+SELECT a.id_cartel AS "Cartel", a.nombre AS "Nombre artista", a.generoMusical, a.hora_entrada AS "Hora actuación", a.hora_salida AS "Hora fin actuación", c.*
+FROM artista a
+    JOIN camerino c ON (a.fechaYHora_camerino = c.fechaYHora)
+WHERE (a.generoMusical = 'Trap') OR (a.generoMusical = 'Hardcore') OR (a.generoMusical = 'Flamenco');
+```
+```Resultado
+quevedofest=> SELECT * FROM artistas_camerino;
+ Cartel |   Nombre artista   | generomusical | Hora actuación | Hora fin actuación |     fechayhora      | id | gama  | nombre
+--------+--------------------+---------------+----------------+--------------------+---------------------+----+-------+--------
+      1 | Kidd Keo           | Trap          | 15:30:00       | 17:30:00           | 2020-07-20 14:30:00 |  1 | Alta  | Rumba
+      1 | Camin              | Trap          | 17:30:00       | 18:30:00           | 2020-07-20 16:30:00 |  2 | Media | World
+      1 | Rosalia            | Trap          | 18:30:00       | 22:30:00           | 2020-07-20 17:30:00 |  1 | Alta  | Rumba
+      1 | C. Tangana         | Trap          | 22:30:00       | 24:00:00           | 2020-07-20 21:30:00 |  1 | Alta  | Rumba
+      9 | AngerFirst         | Hardcore      | 15:00:00       | 19:30:00           | 2021-07-10 14:00:00 |  2 | Media | World
+      9 | HeadHunter         | Hardcore      | 19:30:00       | 20:30:00           | 2021-07-10 18:30:00 |  1 | Alta  | Rumba
+      9 | Coone              | Hardcore      | 20:30:00       | 22:00:00           | 2021-07-10 19:30:00 |  2 | Media | World
+     11 | Daviles de Novelda | Flamenco      | 17:00:00       | 18:30:00           | 2021-07-12 16:00:00 |  2 | Media | World
+     11 | Chambao            | Flamenco      | 18:30:00       | 19:30:00           | 2021-07-12 17:30:00 |  2 | Media | World
+(9 rows)
+```
+
 
 ### SECUENCIAS
 
@@ -91,12 +138,45 @@ quevedofest=> SELECT * FROM escenario;
 (6 rows)
 ```
 
+* **Codificación de secuencia para asignar id a la tabla clubFans que a su vez incremente la columna 'id_clubFans' de la tabla _pertenecer_**
+```sql
+CREATE SEQUENCE IF NOT EXISTS idClubFans
+AS BIGINT
+INCREMENT 1
+START 4;
+
+INSERT INTO clubFans (id, dni_artista, fecha_creacion, nombre, recaudacion) VALUES 
+    (NEXTVAL('idClubFans'), '94587126A', '2020-03-25', 'Farrukitos', 2800);
+
+INSERT INTO pertenecer (dni_mayorEdad, id_clubFans) VALUES
+    ('12365478R', CURRVAL('idClubFans'));
+```
+```Resultado
+quevedofest=> SELECT * FROM clubfans;
+ id | dni_artista | fecha_creacion |    nombre     | recaudacion
+----+-------------+----------------+---------------+-------------
+  1 | 45698235S   | 2017-09-18     | Los Tanguitos |        3000
+  2 | 78998754T   | 2015-10-25     | Believers     |        2700
+  3 | 25896346K   | 2018-02-20     | Ros-alitas    |        1800
+  4 | 94587126A   | 2020-03-25     | Farrukitos    |        2800
+(4 rows)
+
+quevedofest=> SELECT * FROM pertenecer;
+ dni_mayoredad | id_clubfans
+---------------+-------------
+ 78954623L     |           1
+ 65897423N     |           3
+ 12365478R     |           4
+(3 rows)
+```
+
+
 
 ### ÍNDICES
 
 Un índice es un objeto de base de datos que puede mejorar el rendimiento en la ejecución de ciertas consultas, ya que accede rápidamente a la localización de los datos actuando como puntero.
 En numerosas ocasiones, la propia base de datos crea estos índices al definir una clave primaria o una restricción única.  
-Debemos crear índices en caso de que una columna contentga un amplio rango de valores, un gran número de valores nulos, o si se usan varias columnas en una condición _where_ o _join_, entre otras cosas.  
+Debemos crear índices en caso de que una columna contenga un amplio rango de valores, un gran número de valores nulos, o si se usan varias columnas en una condición _where_ o _join_,por ejemplo.  
 
 * **Índice para la tabla _artista_ con la columna 'id_cartel'**
 ```sql
