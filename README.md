@@ -4,9 +4,9 @@
 - [x] 2. Modelo Conceptual
    - [x] 2.1. [Especificaciones](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/2-ModeloConceptual/2.1-Especificaciones.md)
    - [x] 2.2. [Diagrama Entidad-Relación](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/2-ModeloConceptual/2.2-DiagramaEntidadRelacion.md)
-- [ ] 3. Modelo Lógico 
+- [x] 3. Modelo Lógico 
    - [x] 3.1. [Modelo Relacional](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/3-ModeloLogico/3.1-ModeloRelacional.md)
-   - [ ] 3.2. [Normalización/Desnormalización](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/3-ModeloLogico/3.2-Normalizacion.md)
+   - [x] 3.2. [Normalización/Desnormalización](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/3-ModeloLogico/3.2-Normalizacion.md)
 - [x] 4. Modelo Físico
    - [x] 4.1. [Diagrama de base de datos (notación "Crow's feet" o IDEF1X)](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/4-ModeloFisico/4.1-DiagramaIDEF1X.md)
    - [x] 4.2. [Creación de tablas y otros objetos](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/4-ModeloFisico/4.2-CreacionTablas.md)
@@ -16,7 +16,7 @@
    - [x] 5.2. [Consultas sencillas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.2-ConsultasSencillas.md)
    - [x] 5.3. [Consultas de agregación y resumen](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.3-ConsultasAgregaci%C3%B3n.md)
    - [x] 5.4. [Consultas con subconsultas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.4-Subconsultas.md)
-- [ ] 6. Vistas, secuencias e índices
+- [x] 6. [Vistas, secuencias e índices]()
 - [ ] 7. Scripts en PL/pgSQL
 - [ ] 8. Extras
    - [ ] 8.1. Cursores

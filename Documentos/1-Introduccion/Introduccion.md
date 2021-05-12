@@ -16,6 +16,6 @@ Como último modelo a explicar tenemos el físico, en el que crearemos las tabla
 
 Otro apartado a tratar es el de consultas, donde se reflejarán las más frecuentes, las más sencillas y las subconsultas, entre otras. Nos interesará saber, por ejemplo, cuántos festivales y en qué fechas acontecen, el número de carteles que ofrecen, las entradas vendidas y su recaudación total, el número de espectadores o clientes que asisten, los artistas que asisten y pertenecen a cada cartel (y su sueldo), la gestión de los clubes de fans... 
 
-Relacionado con lo anterior, también tendremos un espacio de vistas, secuencias, indices y scripts en PL/pgSQL.
+Relacionado con lo anterior, también tendremos un espacio de vistas, secuencias, indices y scripts en PL/pgSQL, que automatizarán ciertas partes de algunas consultas.
 
-Los últimos aspectos que tendremos en cuenta serán algunos como cursores, planes de prueba y especificaciones en formato Gherkin o el diagrama de clases, entre algunas otras.
+Los últimos aspectos que tendremos en cuenta serán la creación de un prototipo de interfaz de usuario mediante AppInventor, un diagrama de clases de la base de datos en Plant UML y el desarrollo de un programa codificado en Java que conectará con nuestra base de datos e interactuará con ella insertando valores o creando columnas, entre otras cosas.
