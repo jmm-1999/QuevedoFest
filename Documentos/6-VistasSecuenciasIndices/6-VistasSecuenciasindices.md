@@ -110,4 +110,4 @@ ON artista(id_cartel);
 CREATE INDEX cartel_festival_id_ix
 ON cartel(id_festival);
 ```
-![index1](../../Images/BBDD/index2.png)
+![index2](../../Images/BBDD/index2.png)
