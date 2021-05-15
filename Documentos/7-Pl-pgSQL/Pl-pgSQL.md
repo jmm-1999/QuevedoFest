@@ -81,3 +81,67 @@ $$
 ```sql
 select actuacion_artista('14725835J');
 ```
+
+
+3. Función que permite averigurar el menor precio de una entrada para un festival en concreto
+```sql
+create or replace function menor_precio_entradas (
+   p_entrada_idFestival entrada.id_festival%type
+)
+returns integer
+language plpgsql
+as
+$$
+declare
+    v_entrada_idFestival entrada.id_festival%type;
+    v_entrada_menor entrada.precio%type;
+begin
+   -- buscamos el menor precio
+   select min(precio) from entrada
+   into v_entrada_menor
+   where id_festival = p_entrada_idFestival;
+   return v_entrada_menor;
+   -- excepciones
+   exception
+      when no_data_found then 
+         raise notice 'No se localiza la entrada indicada';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$
+```
+```sql
+select menor_precio_entradas(3);
+```
+
+
+4. Función que permite averigurar el mayor precio de una entrada para un festival en concreto
+```sql
+create or replace function mayor_precio_entradas (
+   p_entrada_idFestival entrada.id_festival%type
+)
+returns integer
+language plpgsql
+as
+$$
+declare
+    v_entrada_idFestival entrada.id_festival%type;
+    v_entrada_mayor entrada.precio%type;
+begin
+   -- buscamos el menor precio
+   select max(precio) from entrada
+   into v_entrada_mayor
+   where id_festival = p_entrada_idFestival;
+   return v_entrada_mayor;
+   -- excepciones
+   exception
+      when no_data_found then 
+         raise notice 'No se localiza la entrada indicada';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$
+```
+```sql
+select mayor_precio_entradas(3);
+```

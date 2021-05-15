@@ -125,3 +125,5 @@ CREATE TABLE manager (
     nombre_completo VARCHAR(60) NOT NULL,
     telefono NUMERIC(9) NOT NULL
 );
+    --RESTRICCIONES POSTERIORES
+    ALTER TABLE manager ADD CONSTRAINT manager_comprobacion_dni CHECK (dni LIKE '[A-Z][A-Z][0-9][0-9]');
