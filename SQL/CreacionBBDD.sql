@@ -59,6 +59,8 @@ CREATE TABLE cliente (
     CONSTRAINT cliente_entrada_id FOREIGN KEY (id_entrada)
         REFERENCES entrada (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+    --RESTRICCIONES POSTERIORES
+    ALTER TABLE cliente ADD CONSTRAINT cliente_comprobacion_dni CHECK (dni LIKE '[A-Z][A-Z][0-9][0-9]');
 
 --TABLA MAYOR DE EDAD
 CREATE TABLE mayorEdad (
@@ -105,6 +107,8 @@ CREATE TABLE artista (
     CONSTRAINT artista_manager_dni FOREIGN KEY (dni_manager)
         REFERENCES manager (dni) ON DELETE CASCADE ON UPDATE CASCADE
 );
+    --RESTRICCIONES POSTERIORES
+    ALTER TABLE artista ADD CONSTRAINT artista_comprobacion_dni CHECK (dni LIKE '[A-Z][A-Z][0-9][0-9]');
 
 --TABLA CAMERINO
 CREATE TABLE camerino (

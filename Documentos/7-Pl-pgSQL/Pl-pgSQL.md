@@ -48,7 +48,7 @@ call borrar_asistente('645849552A');
 
 2. Función que permite averiguar el tiempo de actuación de un artista
 ```sql
-create or replace function dif_horas(
+create or replace function actuacion_artista(
 	p_artista_dni artista.dni%type
 )
 returns time
@@ -79,5 +79,5 @@ end;
 $$ 
 ```
 ```sql
-select dif_horas('14725835J');
+select actuacion_artista('14725835J');
 ```
