@@ -17,9 +17,9 @@
    - [x] 5.3. [Consultas de agregación y resumen](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.3-ConsultasAgregaci%C3%B3n.md)
    - [x] 5.4. [Consultas con subconsultas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/5-Consultas/5.4-Subconsultas.md)
 - [x] 6. [Vistas, secuencias e índices](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/6-VistasSecuenciasIndices/6-VistasSecuenciasindices.md)
-- [ ] 7. Scripts en PL/pgSQL
-- [ ] 8. Extras
+- [ ] 7. [Scripts en PL/pgSQL]()
+- [x] 8. Extras
    - [x] 8.1. [Prototipo de interfaz de usuario](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.1-PrototipoInterfazUsuario.md)
-   - [x] 8.2. [Plan de pruebas]()
-   - [x] 8.3. [Especificaciones de pruebas en formato features Gherkin ver ejemplo]() 
+   - [x] 8.2. [Plan de pruebas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.2-PlanPruebas.md)
+   - [x] 8.3. [Especificaciones de pruebas en formato features Gherkin ver ejemplo](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.3-PruebasGherkin.md) 
    - [x] 8.4. [Diagrama de clases](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.4-DiagramaClases.md)
