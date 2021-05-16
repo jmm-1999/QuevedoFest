@@ -97,6 +97,7 @@ rectangle ÁreaArtística {
         -dni: String
         -teléfono: String
         -nombreCompleto: String
+        +nuevo_mánager(String dni, String nombre_completo, String teléfono)
     }
 
     enum GéneroMusical <<enumeration>> {

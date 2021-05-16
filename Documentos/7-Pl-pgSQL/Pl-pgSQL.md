@@ -269,7 +269,7 @@ call cancelar_festival(1);
 ```sql
 create or replace procedure cambio_actuacion(
    --recibirá por parámetro el id de un cartel
-   p_cartel_id cartel.id%type
+   p_cartel_id cartel.id%type,
    p_horas_retrasadas time;
 )
 language plpgsql
@@ -310,11 +310,11 @@ call cambio_actuacion(1);
 create or replace procedure baja_clubFans (
    p_clubFans_dniMayorEdad pertenecer.dni_mayorEdad%type
 )
-anguage plpgsql
+language plpgsql
 as
 $$
 declare
-   v_clubFans_dniMayorEdad pertenecer.dni_mayorEdad%type
+   v_clubFans_dniMayorEdad pertenecer.dni_mayorEdad%type;
 begin
    --buscamos el cliente en cuestión al que dar de baja
    select dni from pertenecer
@@ -333,4 +333,36 @@ $$
 ```
 ```sql
 call baja_clubFans('12365478R');
+```
+
+
+10. Procedimiento que da de alta un nuevo mánager
+```sql
+create or replace procedure nuevo_manager(
+   p_manager_dni manager.dni%type,
+   p_manager_nombre manager.nombre_completo%type,
+   p_manager_telefono manager.telefono%type
+)
+language plpgsql
+as
+$$
+declare
+   v_manager_dni manager.dni%type;
+   v_manager_nombre manager.nombre_completo%type;
+   v_manager_telefono manager.telefono%type;
+begin
+   --insertamos los datos introducidos por el usuario
+   insert into manager (dni, nombre_completo, telefono)
+      values (v_manager_dni, v_manager_nombre, v_manager_telefono);
+   raise notice 'El mánager %, con dni % y teléfono %, ha sido añadido correctamente.', v_manager_nombre, v_manager_dni, v_manager_telefono;
+   exception
+      when no_data_found then 
+         raise notice 'No se ha podido añadir el mánager';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$   
+```
+```sql
+call nuevo_manager('01010101L', 'Manuel Azaña', 640404040);
 ```
