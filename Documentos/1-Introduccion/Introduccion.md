@@ -4,11 +4,11 @@
 
 El proyecto a realizar se basa en la creación de una base de datos que aborde el Área Artísticas del gran QuevedoFest. La crearemos y dessarrollaremos en PostgreSQL con el usuario Javier.
 
-Dicha base de datos gestionará diversos aspectos del festival mediante numerosas tablas de datos, así como los festivales que se celebran, los artistas que asisten, el cartel, las entradas vendidas, el club de fans, los clientes y los escenarios donde se celebrarán los conciertos.
+Dicha base de datos gestionará diversos aspectos del festival mediante numerosas tablas de datos, así como los festivales que se celebran, sus carteles, los artistas que asisten y sus mánagers, las entradas vendidas, el club de fans, los clientes y los escenarios donde se celebrarán los conciertos.
 
 El desarrollo de la base de datos irá evolucionando por etapas:   
 
-Lo primero a realizar es el modelo conceptual, es decir, llevar acabo el desarrollo de una estructura mediante un esquema conceptual. De él se indicarán las especificaciones y se hará el diagrama Entidad-Relación de nuestra base de datos, indicando la cardinalidad y la relación entre las distintas tablas. 
+Lo primero a realizar es el modelo conceptual, es decir, llevar acabo el desarrollo de una estructura mediante un esquema conceptual. En él se indicarán las especificaciones de nuestra base de datos y se hará el diagrama Entidad-Relación de nuestra base de datos, indicando la cardinalidad y la relación entre las distintas tablas. 
 
 En el segundo paso hablaremos sobre el modelo lógico, que establece una estructura sobre los datos independientemente de su almacenamiento. Enfocaremos el modelo relacional y la normalización de las tablas.  
 
@@ -18,4 +18,4 @@ Otro apartado a tratar es el de consultas, donde se reflejarán las más frecuen
 
 Relacionado con lo anterior, también tendremos un espacio de vistas, secuencias, indices y scripts en PL/pgSQL, que automatizarán ciertas partes de algunas consultas.
 
-Los últimos aspectos que tendremos en cuenta serán la creación de un prototipo de interfaz de usuario mediante AppInventor, un diagrama de clases de la base de datos en Plant UML y el desarrollo de un programa codificado en Java que conectará con nuestra base de datos e interactuará con ella insertando valores o creando columnas, entre otras cosas.
+Los últimos aspectos que tendremos en cuenta serán la creación de un prototipo de interfaz de usuario mediante AppInventor, un diagrama de clases de las tablas en Plant UML y el diseño de un plan de pruebas realizadas sobre nuestra base de datos en formato md y Gherkin.
