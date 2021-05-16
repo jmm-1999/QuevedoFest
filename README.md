@@ -21,5 +21,5 @@
 - [x] 8. Extras
    - [x] 8.1. [Prototipo de interfaz de usuario](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.1-PrototipoInterfazUsuario.md)
    - [x] 8.2. [Plan de pruebas](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.2-PlanPruebas.md)
-   - [x] 8.3. [Especificaciones de pruebas en formato features Gherkin ver ejemplo](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.3-PruebasGherkin.md) 
+   - [x] 8.3. [Especificaciones de pruebas en formato Gherkin](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.3-PruebasGherkin.md) 
    - [x] 8.4. [Diagrama de clases](https://github.com/jmm-1999/QuevedoFest/blob/master/Documentos/8-Extras/8.4-DiagramaClases.md)
