@@ -145,3 +145,192 @@ $$
 ```sql
 select mayor_precio_entradas(3);
 ```
+
+
+5. Procedimiento que cree una nueva entrada y la asocie a un nuevo cliente
+```sql
+create or replace procedure nueva_entrada(
+   p_entrada_nueva entrada.id%type
+)
+language plpgsql
+as
+$$
+declare
+   v_id integer;
+   v_entrada_nueva entrada.id%type;
+begin 
+   -- insertamos una nueva entrada
+   insert into entrada (id, id_festival, fecha, precio)
+      values ((select MAX(id) from entrada)+1, 3, '2021-07-10', 100);
+   raise notice 'Entrada creada correctamente';
+   -- buscamos la última entrada creada
+   select max(id) from entrada
+   into v_entrada_nueva
+   where id = p_entrada_nueva;
+   -- creamos un nuevo cliente y le asignamos la entrada creada
+   insert into cliente (dni, id_entrada, nombre, apellido1, apellido2, fechaNac, localidad, telefono)
+      values ('03239746N', v_entrada_nueva, 'Pablo', 'Barnes', 'Ruiz', '1997-05-19', 'Madrid', '666555666');
+   raise notice 'Cliente añadido con éxito';   
+   -- excepciones
+   exception
+      when no_data_found then 
+         raise notice 'No se localiza la entrada indicada';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$
+```
+```sql
+call nueva_entrada(7);
+```
+
+
+6. Procedimiento para clasificar el sueldo de los artistas en 3 grupos.
+```sql
+create or replace function clasificacion_sueldo_artista(
+   p_artista_dni artista.dni%type
+)
+returns varchar
+language plpgsql
+as
+$$
+declare
+   v_artista_dni artista.dni%type;
+   v_artista_sueldo artista.salario%type;
+   v_artista_clasificacion VARCHAR(5);
+begin
+   --buscamos el artista en cuestión
+   select dni from artista
+   into v_artista_dni
+   where dni = p_artista_dni;
+   --buscamos el salario del artista
+   select salario from artista
+   into v_artista_sueldo
+   where salario = artista.salario%type;
+   --clasificamos en función del sueldo
+   if found then
+      case 
+         when v_artista_sueldo > 1800 then
+            v_artista_clasificacion := 'alto';
+         when v_artista_sueldo > 1300 then
+            v_artista_clasificacion := 'medio';
+         else
+            v_artista_clasificacion := 'bajo';
+      end case;      
+      return v_artista_clasificacion;
+   end if;   
+   -- excepciones
+   exception
+      when no_data_found then 
+         raise notice 'No se localiza el artista indicado';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$
+```
+```sql
+select clasificacion_sueldo_artista('54982175B');
+```
+
+
+7. Procedimiento que cancela un festival
+```sql
+create or replace procedure cancelar_festival(
+   p_festivaL_id festival.id%type
+)
+language plpgsql
+as
+$$
+declare
+   v_festivaL_id festival.id%type;
+begin
+   --buscamos el festival en cuestión
+   select id from festival
+   into v_festivaL_id
+   where id = p_festivaL_id;
+   --lo borramos
+   delete from festival where id = v_festivaL_id;
+   raise notice 'El festival % ha sido eliminado correctamente'
+   -- excepciones
+   exception
+      when no_data_found then 
+         raise notice 'No se localiza el festival indicado';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$
+```
+```sql
+call cancelar_festival(1);
+```
+
+
+8. Procedimiento que retrasa la hora de inicio de un cartel
+```sql
+create or replace procedure cambio_actuacion(
+   --recibirá por parámetro el id de un cartel
+   p_cartel_id cartel.id%type
+   p_horas_retrasadas time;
+)
+language plpgsql
+as
+$$
+declare
+    v_cartel_id cartel.id%type;
+    v_horas_retrasadas time;
+    v_cartel_hora cartel.hora%type;
+begin
+   --buscamos al artista pasado por parámetro
+   select id from cartel
+   into v_cartel_id
+   where id = p_cartel_id;
+   --buscamos la hora a retrasar
+   select hora from cartel
+   into v_cartel_hora
+   where hora = cartel.hora%type;
+   --modificamos la hora del cartel
+   update cartel set hora = (v_cartel_hora + v_horas_retrasadas) where id = v_cartel_id;
+   return 'Hora de cartel modificada.';
+   -- excepciones
+   exception
+      when no_data_found then 
+         raise notice 'No se localiza el cartel indicado';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$
+```
+```sql
+call cambio_actuacion(1);
+```
+
+
+9. Procedimiento que da de baja a un cliente de un club de fans
+```sql
+create or replace procedure baja_clubFans (
+   p_clubFans_dniMayorEdad pertenecer.dni_mayorEdad%type
+)
+anguage plpgsql
+as
+$$
+declare
+   v_clubFans_dniMayorEdad pertenecer.dni_mayorEdad%type
+begin
+   --buscamos el cliente en cuestión al que dar de baja
+   select dni from pertenecer
+   into v_clubFans_dniMayorEdad
+   where dni = p_clubFans_dniMayorEdad;
+   --lo damos de baja
+   delete from pertenecer where dni = v_clubFans_dniMayorEdad;
+   raise notice 'El asistente % ya no pertenece a ingún club de fans', v_clubFans_dniMayorEdad;
+   exception
+      when no_data_found then 
+         raise notice 'No se localiza el cliente indicado';
+      when others then
+         raise exception 'Se ha producido en un error inesperado';
+end;
+$$
+```
+```sql
+call baja_clubFans('12365478R');
+```

@@ -9,7 +9,7 @@ rectangle ÁreaArtística {
         - nombre: String
         - fechaInicio: Timestamp
         - fechaFin: Timestamp
-        + crearFestival()
+        +cancelar_festival(integer id)
     }
 
     class Cartel {
@@ -19,7 +19,7 @@ rectangle ÁreaArtística {
         -fecha: Date
         -hora: Time
         -géneroMusical: GéneroMusical
-        + crearCartel(Festival)
+        +cambio_actuacion(integer id, time horas)
     }
 
     class Escenario {
@@ -36,6 +36,9 @@ rectangle ÁreaArtística {
         -idFestival: Integer
         -precio: Integer
         -fecha: Timestamp
+        +menor_precio_entradas(integer id)
+        +mayor_precio_entradas(integer id)
+        +nueva_entrada(integer id)
     }
 
     class Cliente {
@@ -47,6 +50,7 @@ rectangle ÁreaArtística {
         -fechaNacimiento: Date
         -localidad: String
         -teléfono: String
+        +borrar_asistente(String dni)
     }
 
     class MayorEdad {
@@ -56,6 +60,7 @@ rectangle ÁreaArtística {
     class Pertenecer {
         -dniMayorEdad: String
         -idClubFans: Integer
+        +baja_clubFans(String dni)
     }
 
     class ClubFans {
@@ -77,6 +82,8 @@ rectangle ÁreaArtística {
         -géneroMusical: GéneroMusical
         -horaEntrada: Time
         -horaSalida: Time
+        +actuacion_artista(String dni)
+        +clasificacion_sueldo_artista(String dni)
     }
 
     class Camerino {
